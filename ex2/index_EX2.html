@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieve Button Value</title>
+</head>
+<body>
+    <form id="myForm">
+        <div id="buttonDiv"></div>
+    </form>
+
+    <script>
+        // Creating the submit button as in Exercise 1
+        let submitButton = document.createElement("input");
+        submitButton.type = "submit";
+        submitButton.value = "Submit";
+        document.getElementById("buttonDiv").appendChild(submitButton);
+
+        // Changing the text on the submit button
+        submitButton.addEventListener("click", function(event) {
+            event.preventDefault();  // Prevent the form from submitting
+            submitButton.value = "Clicked!";
+        }); 
+    </script>
+    <script src ="scripts_EX2.js"></script>
+</body>
+</html>

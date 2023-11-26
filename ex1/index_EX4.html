@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write JSON to File</title>
+</head>
+<body>
+
+<h2>Click the button to download the JSON object as a file:</h2>
+
+<button onclick="downloadJSON()">Download JSON</button>
+
+<script>
+    function downloadJSON() {
+        // Sample JSON object
+        const jsonObject = {
+            name: "John",
+            age: 25,
+            country: "USA"
+        };
+
+        // Convert JSON object to string
+        const jsonString = JSON.stringify(jsonObject, null, 4);
+
+        // Create a blob from the JSON string
+        const blob = new Blob([jsonString], { type: 'application/json' });
+
+        // Create a link element
+        const a = document.createElement('a');
+
+        // Set href to the blob
+        a.href = URL.createObjectURL(blob);
+        a.download = 'data.json';
+
+        // Append link to the document and click to start download
+        document.body.appendChild(a);
+        a.click();
+
+        // Clean up
+        document.body.removeChild(a);
+        URL.revokeObjectURL(a.href);
+    }
+</script>
+
+</body>
+</html>

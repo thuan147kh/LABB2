@@ -1,0 +1,50 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+ 
+    <title>
+        How to copy the text to the
+        clipboard in JavaScript ?
+    </title>
+</head>
+ 
+<body>
+ 
+    <input type="text" value="20522058"
+        id="GfGInput">
+ 
+    <button onclick="copy()">
+        Copy text
+    </button>
+ 
+    <p>
+        Click on the button to copy the text 
+        from the text field.<br> Try to paste 
+        the text (e.g. ctrl+v) afterwards in
+        a different window, to see the effect.
+    </p>
+ 
+    <p id="gfg"></p>
+ 
+    <script>
+        function copy() {
+            let copyGfGText = 
+                document.getElementById("GfGInput");
+ 
+            copyGfGText.select();
+            document.execCommand("copy");
+             
+            document.getElementById("gfg")
+                .innerHTML = "Copied the text: "
+                + copyGfGText.value;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Text Change</title>
+</head>
+<body>
+    <div id="buttonDiv"></div>
+
+    <script>
+        // Creating the submit button
+        let submitButton = document.createElement("input");
+        submitButton.type = "submit";
+        submitButton.value = "Submit";
+        document.getElementById("buttonDiv").appendChild(submitButton);
+
+        // Changing the text on the submit button
+        submitButton.addEventListener("click", function() {
+            submitButton.value = "Clicked!";
+        });
+    </script>
+</body>
+</html>

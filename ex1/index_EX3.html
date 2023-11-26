@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Parser</title>
+</head>
+<body>
+
+<h2>Click the button to parse the cookie string and display the result:</h2>
+
+<button onclick="showParsedCookies()">Parse Cookie</button>
+
+<pre id="output"></pre>
+
+<script>
+    function parseCookie(cookieString) {
+        // Split the cookie string at each ';'
+        const cookiePairs = cookieString.split(';');
+
+        // Reduce the pairs into a single object
+        const result = cookiePairs.reduce((accumulator, cookiePair) => {
+            // Trim leading/trailing whitespace and split into name and value
+            const [name, value] = cookiePair.trim().split('=');
+
+            // Add the name-value pair to the accumulator object
+            accumulator[name] = decodeURIComponent(value);
+
+            return accumulator;
+        }, {});
+
+        return result;
+    }
+
+    function showParsedCookies() {
+        const cookieString = "name=John; age=25; country=USA";
+        const parsedCookies = parseCookie(cookieString);
+        document.getElementById("output").textContent = JSON.stringify(parsedCookies, null, 2);
+    }
+</script>
+
+</body>
+</html>
